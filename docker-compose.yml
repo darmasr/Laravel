@@ -1,0 +1,87 @@
+version: '3.1'
+services:  
+  
+  nginx:
+    image: nginx
+    container_name: ${PROJECT_NAME}-nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./src:/var/www
+    networks:
+      local_net:
+        ipv4_address: 174.28.1.2
+    links:
+      - php-fpm
+
+  php-fpm:
+    build: php-fpm
+    container_name: ${PROJECT_NAME}-php
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - ./src:/var/www
+      - ./php-fpm/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    networks:
+        local_net:
+            ipv4_address: 174.28.1.3
+
+  postgres:
+    image: postgres:11.0-alpine
+    container_name: ${PROJECT_NAME}-postgres
+    restart: always
+    ports:
+        - 5432:5432
+    volumes:
+      - ./database:/var/www/database
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      local_net:
+        ipv4_address: 174.28.1.4
+
+  phppgadmin:
+    image: dockage/phppgadmin
+    container_name: ${PROJECT_NAME}-phppgadmin
+    restart: always
+    ports:
+      - 8080:80
+      - 443:443
+    environment:
+      - PHP_PG_ADMIN_SERVER_DESC=PostgreSQL
+      - PHP_PG_ADMIN_SERVER_HOST=postgres
+      - PHP_PG_ADMIN_SERVER_PORT=5432
+      - PHP_PG_ADMIN_SERVER_SSL_MODE=allow
+      - PHP_PG_ADMIN_SERVER_DEFAULT_DB=template1
+      - PHP_PG_ADMIN_SERVER_PG_DUMP_PATH=/usr/bin/pg_dump
+      - PHP_PG_ADMIN_SERVER_PG_DUMPALL_PATH=/usr/bin/pg_dumpall
+      - PHP_PG_ADMIN_DEFAULT_LANG=auto
+      - PHP_PG_ADMIN_AUTO_COMPLETE=default on
+      - PHP_PG_ADMIN_EXTRA_LOGIN_SECURITY=false
+      - PHP_PG_ADMIN_OWNED_ONLY=false
+      - PHP_PG_ADMIN_SHOW_COMMENTS=true
+      - PHP_PG_ADMIN_SHOW_ADVANCED=false
+      - PHP_PG_ADMIN_SHOW_SYSTEM=false
+      - PHP_PG_ADMIN_MIN_PASSWORD_LENGTH=1
+      - PHP_PG_ADMIN_LEFT_WIDTH=200
+      - PHP_PG_ADMIN_THEME=default
+      - PHP_PG_ADMIN_SHOW_OIDS=false
+      - PHP_PG_ADMIN_MAX_ROWS=30
+      - PHP_PG_ADMIN_MAX_CHARS=50
+      - PHP_PG_ADMIN_USE_XHTML_STRICT=false
+      - PHP_PG_ADMIN_HELP_BASE=http://www.postgresql.org/docs/%s/interactive/
+      - PHP_PG_ADMIN_AJAX_REFRESH=3
+    networks:
+        local_net:
+            ipv4_address: 174.28.1.5
+
+networks:
+    local_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 174.28.0.0/16
