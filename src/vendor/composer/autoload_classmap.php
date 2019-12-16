@@ -6,13 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Account' => $baseDir . '/app/Account.php',
-    'App\\Activity' => $baseDir . '/app/Activity.php',
-    'App\\ActivityStatus' => $baseDir . '/app/ActivityStatus.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
-    'App\\Contact' => $baseDir . '/app/Contact.php',
-    'App\\ContactSource' => $baseDir . '/app/ContactSource.php',
-    'App\\ContactStatus' => $baseDir . '/app/ContactStatus.php',
+    'App\\Employee' => $baseDir . '/app/Employee.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -197,6 +192,7 @@ return array(
     'Egulias\\EmailValidator\\Warning\\QuotedString' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
     'Egulias\\EmailValidator\\Warning\\TLD' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
     'Egulias\\EmailValidator\\Warning\\Warning' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+    'EmployeesTableSeeder' => $baseDir . '/database/seeds/EmployeesTableSeeder.php',
     'Facade\\FlareClient\\Api' => $vendorDir . '/facade/flare-client-php/src/Api.php',
     'Facade\\FlareClient\\Concerns\\HasContext' => $vendorDir . '/facade/flare-client-php/src/Concerns/HasContext.php',
     'Facade\\FlareClient\\Concerns\\UsesTime' => $vendorDir . '/facade/flare-client-php/src/Concerns/UsesTime.php',

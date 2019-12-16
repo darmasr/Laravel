@@ -407,13 +407,8 @@ class ComposerStaticInit65cd2dcabb26dc86113f782b03bad330
     );
 
     public static $classMap = array (
-        'App\\Account' => __DIR__ . '/../..' . '/app/Account.php',
-        'App\\Activity' => __DIR__ . '/../..' . '/app/Activity.php',
-        'App\\ActivityStatus' => __DIR__ . '/../..' . '/app/ActivityStatus.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
-        'App\\ContactSource' => __DIR__ . '/../..' . '/app/ContactSource.php',
-        'App\\ContactStatus' => __DIR__ . '/../..' . '/app/ContactStatus.php',
+        'App\\Employee' => __DIR__ . '/../..' . '/app/Employee.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -598,6 +593,7 @@ class ComposerStaticInit65cd2dcabb26dc86113f782b03bad330
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'EmployeesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EmployeesTableSeeder.php',
         'Facade\\FlareClient\\Api' => __DIR__ . '/..' . '/facade/flare-client-php/src/Api.php',
         'Facade\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/HasContext.php',
         'Facade\\FlareClient\\Concerns\\UsesTime' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/UsesTime.php',

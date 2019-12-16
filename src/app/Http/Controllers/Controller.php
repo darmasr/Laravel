@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests;
+use App\Http\Resources\EmployeeResource;
+use App\Employee;
+
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
